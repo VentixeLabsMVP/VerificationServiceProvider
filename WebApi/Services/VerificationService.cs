@@ -56,13 +56,13 @@ public class VerificationService(IConfiguration configuration, EmailClient email
                   </body>
                 </html>
                 ";
-            var forcedEmail = "freedrik92@hotmail.com";// during test so all mail go to me:(
+            //var forcedEmail = "freedrik92@hotmail.com";// during test so all mail go to me:(
             var emailMessage = new EmailMessage(
-                senderAddress: _configuration["ACS:SenderAddress"],// during test
-                recipients: new EmailRecipients([new(forcedEmail)]),// during test
+                //senderAddress: _configuration["ACS:SenderAddress"],// during test
+                //recipients: new EmailRecipients([new(forcedEmail)]),// during test
 
-            //senderAddress: _configuration["ACS:SenderAddress"],
-            //recipients: new EmailRecipients([new  (request.Email)]),
+            senderAddress: _configuration["ACS:SenderAddress"],
+            recipients: new EmailRecipients([new(request.Email)]),
             content: new EmailContent(subject)
             {
                 PlainText = plainTextContent,
